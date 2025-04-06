@@ -1,7 +1,5 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "@clerk/clerk-react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -54,12 +52,11 @@ const RECENT_COURSES = [
 ];
 
 const Dashboard = () => {
-  const { user } = useUser();
   const navigate = useNavigate();
   const [recentCourses] = useState(RECENT_COURSES);
 
-  // Get first name to personalize greeting
-  const firstName = user?.firstName || "there";
+  // Default name for greeting
+  const firstName = "there";
 
   return (
     <DashboardLayout>

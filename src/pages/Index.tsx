@@ -1,12 +1,10 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser, SignInButton, SignUpButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { Sparkles, BookOpen, GraduationCap, BrainCircuit } from "lucide-react";
 
 const Index = () => {
-  const { isSignedIn } = useUser();
   const navigate = useNavigate();
   const [isHovering, setIsHovering] = useState(false);
 
@@ -20,27 +18,12 @@ const Index = () => {
             <span className="text-xl font-bold text-mentor-dark">Deep Mentor</span>
           </div>
           <div>
-            {isSignedIn ? (
-              <Button 
-                onClick={() => navigate("/dashboard")} 
-                className="bg-mentor-primary hover:bg-mentor-secondary"
-              >
-                Go to Dashboard
-              </Button>
-            ) : (
-              <div className="flex gap-3">
-                <SignInButton mode="modal">
-                  <Button variant="outline" className="border-mentor-primary text-mentor-primary hover:bg-mentor-light">
-                    Sign In
-                  </Button>
-                </SignInButton>
-                <SignUpButton mode="modal">
-                  <Button className="bg-mentor-primary hover:bg-mentor-secondary">
-                    Sign Up
-                  </Button>
-                </SignUpButton>
-              </div>
-            )}
+            <Button 
+              onClick={() => navigate("/dashboard")} 
+              className="bg-mentor-primary hover:bg-mentor-secondary"
+            >
+              Go to Dashboard
+            </Button>
           </div>
         </nav>
       </header>
@@ -62,26 +45,15 @@ const Index = () => {
               Learn any subject deeply with a personalized AI teaching assistant that adapts to your pace and learning style.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              {isSignedIn ? (
-                <Button 
-                  onClick={() => navigate("/dashboard")}
-                  size="lg" 
-                  className="bg-mentor-primary hover:bg-mentor-secondary text-lg px-8"
-                >
-                  Go to Dashboard
-                </Button>
-              ) : (
-                <SignUpButton mode="modal">
-                  <Button 
-                    size="lg" 
-                    className="bg-mentor-primary hover:bg-mentor-secondary text-lg px-8"
-                    onMouseEnter={() => setIsHovering(true)}
-                    onMouseLeave={() => setIsHovering(false)}
-                  >
-                    Get Started {isHovering && <Sparkles className="ml-2 h-5 w-5 animate-pulse" />}
-                  </Button>
-                </SignUpButton>
-              )}
+              <Button 
+                onClick={() => navigate("/dashboard")}
+                size="lg" 
+                className="bg-mentor-primary hover:bg-mentor-secondary text-lg px-8"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                Get Started {isHovering && <Sparkles className="ml-2 h-5 w-5 animate-pulse" />}
+              </Button>
               <Button 
                 variant="outline" 
                 size="lg" 

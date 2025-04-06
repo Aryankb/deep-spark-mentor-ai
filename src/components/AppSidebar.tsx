@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { UserButton } from "@clerk/clerk-react";
 import { 
   Sidebar, 
   SidebarContent, 
@@ -12,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { 
   Home, 
   BookOpen, 
@@ -117,7 +117,10 @@ export function AppSidebar() {
           <Button variant="ghost" size="icon">
             <Settings className="h-4 w-4" />
           </Button>
-          <UserButton afterSignOutUrl="/" />
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+            <AvatarFallback>U</AvatarFallback>
+          </Avatar>
         </div>
       </SidebarFooter>
     </Sidebar>
