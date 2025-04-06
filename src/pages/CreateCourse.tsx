@@ -20,7 +20,8 @@ import {
   CheckCircle2,
   UserRound,
   FileQuestion,
-  GraduationCap
+  GraduationCap,
+  PlayCircle
 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
